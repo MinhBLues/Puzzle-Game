@@ -21,6 +21,8 @@ namespace PuzzleGame
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    /// 
+
     public partial class MainWindow : Window
     {
         private int time = 120;
@@ -43,6 +45,9 @@ namespace PuzzleGame
         const int startY = 30;
         const int width = 100;
         const int height = 100;
+        const int Rows = 3;
+        const int Cols = 3;
+        int[,] _a;
         private void split()
         {
             System.Drawing.Image img;
@@ -61,8 +66,8 @@ namespace PuzzleGame
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
             NewImageListView();
+            _a = new int[Rows, Cols];
         }
 
         ImageClass images;
@@ -144,6 +149,7 @@ namespace PuzzleGame
         }
 
 
+        
         private void ImageListView_Click(object sender, MouseButtonEventArgs e)
         {
             //   MessageBox.Show(e.GetPosition(this).ToString());
@@ -157,15 +163,6 @@ namespace PuzzleGame
             source.CacheOption = BitmapCacheOption.OnLoad;
             source.EndInit();
             imageDisplay.Source = source;
-            //    MessageBox.Show(filename);
-
-            //previewImage.Width = 300;
-            //previewImage.Height = 240;
-            //previewImage.Source = source;
-
-            //Canvas.SetLeft(previewImage, 200);
-            //Canvas.SetTop(previewImage, 20);
-
 
             //crop image
             for (int i = 0; i < 3; i++)
@@ -187,8 +184,31 @@ namespace PuzzleGame
                         cropImage.Height = height;
                         cropImage.Source = cropBitmap;
                         uiListView.Children.Add(cropImage);
-                        Canvas.SetLeft(cropImage, startX + j * (width + 2));
-                        Canvas.SetTop(cropImage, startY + i * (height + 2));
+
+                        var random = new Random();
+                       //ramdom cropImage Local
+                        int tempi = random.Next(Rows);
+                        int tempj = random.Next(Cols);
+                        //khi vi tri do da co hinh
+                        if(_a[tempi, tempj] == 0)
+                        {
+                            Canvas.SetLeft(cropImage, startX + tempj * (width + 2));
+                            Canvas.SetTop(cropImage, startY + tempi * (height + 2));
+                        }
+                        while (_a[tempi, tempj] == 1)
+                        {
+                            //random lai
+                            tempi = random.Next(Rows );
+                            tempj = random.Next(Cols);
+                            //neu vi tri do chua co hinh
+                            if (_a[tempi, tempj] == 0)
+                            {
+                                Canvas.SetLeft(cropImage, startX + tempj * (width + 2));
+                                Canvas.SetTop(cropImage, startY + tempi * (height + 2));
+                                break;
+                            }
+                        }
+                        _a[tempi, tempj] = 1;
 
                         cropImage.MouseLeftButtonDown += CropImage_MouseLeftButtonDown;
                         cropImage.PreviewMouseLeftButtonUp += CropImage_PreviewMouseLeftButtonUp;
@@ -201,12 +221,13 @@ namespace PuzzleGame
 
         private void CropImage_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            throw new NotImplementedException();
+          //  throw new NotImplementedException();
         }
 
         private void CropImage_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-           throw new NotImplementedException();
+          
+           //throw new NotImplementedException();
         }
 
         private void ImageListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
