@@ -84,8 +84,7 @@
             <Grid>
                 <GroupBox Header="PuzzleBox" Margin="0,0,10,0" Width="450" >
                     <Canvas Name="uiListView" Margin="0,0,0,0" DockPanel.Dock="Left" >
-
-
+                        <Image x:Name="previewImage" MouseLeftButtonUp="previewImage_MouseLeftButtonUp"></Image>
                     </Canvas>
                 </GroupBox>
             </Grid>

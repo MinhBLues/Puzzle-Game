@@ -1,7 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
+//using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,6 +38,11 @@ namespace PuzzleGame
             timer.Start();
         }
 
+
+        const int startX = 30;
+        const int startY = 30;
+        const int width = 100;
+        const int height = 100;
         private void split()
         {
             System.Drawing.Image img;
@@ -154,13 +159,62 @@ namespace PuzzleGame
             imageDisplay.Source = source;
             //    MessageBox.Show(filename);
 
+            //previewImage.Width = 300;
+            //previewImage.Height = 240;
+            //previewImage.Source = source;
+
+            //Canvas.SetLeft(previewImage, 200);
+            //Canvas.SetTop(previewImage, 20);
 
 
+            //crop image
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    if (!((i == 2) && (j == 2)))
+                    {
+                        var h = (int)source.PixelHeight / 3;
+                        var w = (int)source.PixelWidth / 3;
+                        //Debug.WriteLine($"Len = {len}");
+                        var rect = new Int32Rect(j * w, i * h, w, h);
+                        var cropBitmap = new CroppedBitmap(source,
+                            rect);
 
+                        var cropImage = new Image();
+                        cropImage.Stretch = Stretch.Fill;
+                        cropImage.Width = width;
+                        cropImage.Height = height;
+                        cropImage.Source = cropBitmap;
+                        uiListView.Children.Add(cropImage);
+                        Canvas.SetLeft(cropImage, startX + j * (width + 2));
+                        Canvas.SetTop(cropImage, startY + i * (height + 2));
 
+                        cropImage.MouseLeftButtonDown += CropImage_MouseLeftButtonDown;
+                        cropImage.PreviewMouseLeftButtonUp += CropImage_PreviewMouseLeftButtonUp;
+                        cropImage.Tag = new Tuple<int, int>(i, j);
+                        //cropImage.MouseLeftButtonUp
+                    }
+                }
+            }
+        }
+
+        private void CropImage_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void CropImage_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+           throw new NotImplementedException();
         }
 
         private void ImageListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void previewImage_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
 
         }
