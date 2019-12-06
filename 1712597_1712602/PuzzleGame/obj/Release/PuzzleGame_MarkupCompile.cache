@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\LT WIN\Puzzle-Game\1712597_1712602\PuzzleGame\obj\Debug\
+D:\LT WIN\Puzzle-Game\1712597_1712602\PuzzleGame\obj\Release\
 PuzzleGame
 none
 false
-DEBUG;TRACE
+TRACE
 D:\LT WIN\Puzzle-Game\1712597_1712602\PuzzleGame\App.xaml
 11151548125
 
-721735967
+5-2017746502
 141183416626
 MainWindow.xaml;
 
-False
+True
 

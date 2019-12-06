@@ -12,3 +12,17 @@ D:\NAM 3\LTW_C#\Đồ án\1712597_171602_PuzzleGame\1712597_1712602\PuzzleGame\o
 D:\NAM 3\LTW_C#\Đồ án\1712597_171602_PuzzleGame\1712597_1712602\PuzzleGame\obj\Debug\PuzzleGame.csproj.GenerateResource.cache
 D:\NAM 3\LTW_C#\Đồ án\1712597_171602_PuzzleGame\1712597_1712602\PuzzleGame\obj\Debug\PuzzleGame.exe
 D:\NAM 3\LTW_C#\Đồ án\1712597_171602_PuzzleGame\1712597_1712602\PuzzleGame\obj\Debug\PuzzleGame.pdb
+D:\LT WIN\Puzzle-Game\1712597_1712602\PuzzleGame\bin\Debug\PuzzleGame.exe.config
+D:\LT WIN\Puzzle-Game\1712597_1712602\PuzzleGame\bin\Debug\PuzzleGame.exe
+D:\LT WIN\Puzzle-Game\1712597_1712602\PuzzleGame\bin\Debug\PuzzleGame.pdb
+D:\LT WIN\Puzzle-Game\1712597_1712602\PuzzleGame\obj\Debug\PuzzleGame.csprojAssemblyReference.cache
+D:\LT WIN\Puzzle-Game\1712597_1712602\PuzzleGame\obj\Debug\MainWindow.g.cs
+D:\LT WIN\Puzzle-Game\1712597_1712602\PuzzleGame\obj\Debug\App.g.cs
+D:\LT WIN\Puzzle-Game\1712597_1712602\PuzzleGame\obj\Debug\PuzzleGame_MarkupCompile.cache
+D:\LT WIN\Puzzle-Game\1712597_1712602\PuzzleGame\obj\Debug\PuzzleGame_MarkupCompile.lref
+D:\LT WIN\Puzzle-Game\1712597_1712602\PuzzleGame\obj\Debug\MainWindow.baml
+D:\LT WIN\Puzzle-Game\1712597_1712602\PuzzleGame\obj\Debug\PuzzleGame.g.resources
+D:\LT WIN\Puzzle-Game\1712597_1712602\PuzzleGame\obj\Debug\PuzzleGame.Properties.Resources.resources
+D:\LT WIN\Puzzle-Game\1712597_1712602\PuzzleGame\obj\Debug\PuzzleGame.csproj.GenerateResource.cache
+D:\LT WIN\Puzzle-Game\1712597_1712602\PuzzleGame\obj\Debug\PuzzleGame.exe
+D:\LT WIN\Puzzle-Game\1712597_1712602\PuzzleGame\obj\Debug\PuzzleGame.pdb

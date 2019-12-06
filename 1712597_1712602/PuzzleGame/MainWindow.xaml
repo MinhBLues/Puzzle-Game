@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PuzzleGame"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="940"
+        Icon="icon-image/puzzle.png"
+        Title="Image Puzzle Game" Height="600" Width="940"
         Loaded="Window_Loaded"
         >
     <Grid>
@@ -34,19 +35,37 @@
                 </ToolBar>
             </ToolBarTray>
             <Grid DockPanel.Dock="Left">
-                <GroupBox Header="PuzzleBox" Margin="0,0,10,0" Width="600" >
-                    
-                    <Canvas Name="uiListView" Margin="0,0,0,0" DockPanel.Dock="Left" >
+                <GroupBox Header="Choose Image">
+                    <StackPanel Width="150" Orientation="Horizontal">
+                        <DockPanel Width="150">
+                            <Button Name="BrowseButton" Content="Browse..."
+                            DockPanel.Dock="Bottom"
+                            HorizontalAlignment="Right"
+                            Click="BrowseButton_Click"></Button>
 
-                    </Canvas>
+                            <ListView Name="ImageListView" DockPanel.Dock="Top" 
+                              ScrollViewer.VerticalScrollBarVisibility="Visible"
+                              ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                              PreviewMouseLeftButtonUp="ImageListView_Click" SelectionChanged="ImageListView_SelectionChanged">
+
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Image Source="{Binding }"
+                                          Stretch="Fill" RenderOptions.BitmapScalingMode="HighQuality"></Image>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </DockPanel>
+                    </StackPanel>
                 </GroupBox>
+
             </Grid>
             <Grid DockPanel.Dock="Right">
                 <GroupBox Header="Original" VerticalAlignment="Top" Width="300" Height="300" DockPanel.Dock="Top" >
-                    <Image Width="290"  Source="original.jpg" RenderOptions.BitmapScalingMode="HighQuality" />
+                    <Image x:Name="imageDisplay" Width="290"  RenderOptions.BitmapScalingMode="HighQuality" />
                 </GroupBox>
                 <StackPanel VerticalAlignment="Bottom">
-                    <Label Name="lblTime" Height="30" Width="100" FontSize="20" Foreground="Red"  FontWeight="Bold" Padding="10,0,0,0" > 00:00:00</Label>
+                    <Label Name="lblTime" Height="30" Width="100" FontSize="20" Foreground="Red"  FontWeight="Bold" Padding="10,0,0,0" >00:00:00</Label>
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="20,10,0,10" >
                         <Button  Width="90" Height="40" Margin="0,0,10,0" Content="Shuffle"  />
                         <Button Width="90" Height="40" Margin="0,0,10,0"  Content="Pause"/>
@@ -61,6 +80,14 @@
                         <Button DockPanel.Dock="Bottom" Width="40" Height="40" Content="Bottom"/>
                     </StackPanel>
                 </StackPanel>
+            </Grid>
+            <Grid>
+                <GroupBox Header="PuzzleBox" Margin="0,0,10,0" Width="450" >
+                    <Canvas Name="uiListView" Margin="0,0,0,0" DockPanel.Dock="Left" >
+
+
+                    </Canvas>
+                </GroupBox>
             </Grid>
         </DockPanel>
     </Grid>
