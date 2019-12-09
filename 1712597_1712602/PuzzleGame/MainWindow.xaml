@@ -5,60 +5,125 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PuzzleGame"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="940"
+        Title="Puzzle Game" Height="600" Width="940"
         Loaded="Window_Loaded"
+        MouseMove="Window_MouseMove"
+        WindowStartupLocation="CenterScreen"
+        KeyDown="Window_KeyDown"
         >
-    <Grid>
+    <Window.Resources>
+        <local:RelativeToAbsolutePathConverter x:Key="converter"/>
+    </Window.Resources>
+    <Grid Name="gridView">
         <DockPanel>
             <ToolBarTray Height="40" Margin="0,0,0,10" DockPanel.Dock="Top" Background="AliceBlue">
                 <ToolBar Background="AliceBlue">
                     <Separator></Separator>
-                    <Button Margin="0,0,5,0" Content="Save" Click="Save_Click"/>
+                    <Button Margin="0,2,5,0"  Click="Save_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="{Binding icon[0], Converter={StaticResource converter}}" Width="20" Height="20"
+                                   RenderOptions.BitmapScalingMode="HighQuality" />
+                            <TextBlock Margin="10,2,0,0" >Save</TextBlock>
+                        </StackPanel>
+                    </Button>
                     <Separator></Separator>
-                    <Menu Margin="0,0,5,0" Background="AliceBlue">
+                    <Menu Margin="0,2,5,0" Background="AliceBlue">
                         <MenuItem Header="Load">
-                            <MenuItem Header="Load Game" Click="LoadGame_Click"></MenuItem>
-                            <MenuItem Header="Load Images" Click="LoadImage_Click" ></MenuItem>
+                            <MenuItem.Icon>
+                                <Image Source="{Binding  icon[1], Converter={StaticResource converter}}" Width="20" Height="20" RenderOptions.BitmapScalingMode="HighQuality"/>
+                            </MenuItem.Icon>
+                            <MenuItem Header="Load Game" Click="LoadGame_Click" >
+                                <MenuItem.Icon>
+                                    <Image Source="{Binding  icon[2], Converter={StaticResource converter}}" Width="20" Height="20" RenderOptions.BitmapScalingMode="HighQuality"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Header="Load Images" Click="LoadImage_Click" >
+                                <MenuItem.Icon>
+                                    <Image Source="{Binding  icon[3], Converter={StaticResource converter}}" Width="20" Height="20" RenderOptions.BitmapScalingMode="HighQuality"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
                         </MenuItem>
                     </Menu>
                     <Separator></Separator>
-                    <Menu Margin="0,0,5,0" Background="AliceBlue">
+                    <Menu Margin="0,2,5,0" Background="AliceBlue">
                         <MenuItem Header="Options">
-                            <RadioButton Name="btnCheck1" IsChecked="True" Checked="btn_click" >3 * 3</RadioButton>
+                            <MenuItem.Icon>
+                                <Image Source="{Binding  icon[4], Converter={StaticResource converter}}" Width="20" Height="20" RenderOptions.BitmapScalingMode="HighQuality"/>
+                            </MenuItem.Icon>
+                            <RadioButton Name="btnCheck1" Checked="btn_click" >3 * 3</RadioButton>
                             <RadioButton Name="btnCheck2"  Checked="btn_click">6 * 6</RadioButton>
                             <RadioButton Name="btnCheck3" Checked="btn_click" >9 * 9</RadioButton>
                         </MenuItem>
                     </Menu>
                     <Separator></Separator>
-                    <Button Margin="0,0,5,0" Content="Help"/>
+                    <Menu Margin="0,2,5,0" Background="AliceBlue">
+                        <MenuItem Header="Help">
+                            <MenuItem.Icon>
+                                <Image Source="{Binding  icon[5], Converter={StaticResource converter}}" Width="20" Height="20"
+                                   RenderOptions.BitmapScalingMode="HighQuality" />
+                            </MenuItem.Icon>
+                            <TextBlock Name="tbHelp" Margin="10,2,0,0"/>
+                        </MenuItem>
+                    </Menu>
+                   
                 </ToolBar>
             </ToolBarTray>
             <Grid DockPanel.Dock="Left">
-                <GroupBox Header="PuzzleBox" Margin="0,0,10,0" Width="600" >
-                    
-                    <Canvas Name="uiListView" Margin="0,0,0,0" DockPanel.Dock="Left" >
-
+                <GroupBox Name="gbPuzzleBox" Header="PuzzleBox" Margin="0,0,10,0" Width="600" >
+                    <Canvas Background="BurlyWood" Name="canvasGame" Margin="0,0,0,0" DockPanel.Dock="Left" >
+                        
                     </Canvas>
                 </GroupBox>
             </Grid>
             <Grid DockPanel.Dock="Right">
-                <GroupBox Header="Original" VerticalAlignment="Top" Width="300" Height="300" DockPanel.Dock="Top" >
-                    <Image Width="290"  Source="original.jpg" RenderOptions.BitmapScalingMode="HighQuality" />
+                <GroupBox Header="Original" VerticalAlignment="Top" Width="300" Height="250" DockPanel.Dock="Top" >
+                    <Image  Name="Original"  RenderOptions.BitmapScalingMode="HighQuality" />
                 </GroupBox>
                 <StackPanel VerticalAlignment="Bottom">
                     <Label Name="lblTime" Height="30" Width="100" FontSize="20" Foreground="Red"  FontWeight="Bold" Padding="10,0,0,0" > 00:00:00</Label>
+                    <Label Name="lblMove" Height="30" Width="150" FontSize="15" Foreground="DarkSeaGreen" Margin="10,0,0,0" FontWeight="Medium"  Padding="10,0,0,0" >Moves Made: 0 </Label>
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="20,10,0,10" >
-                        <Button  Width="90" Height="40" Margin="0,0,10,0" Content="Shuffle"  />
-                        <Button Width="90" Height="40" Margin="0,0,10,0"  Content="Pause"/>
-                        <Button  Width="90" Height="40" Margin="0,0,10,0" Content="Quit"/>
+                        <Button BorderBrush="Pink" Background="White" Width="90" Height="40" Margin="0,0,10,0"  Click="shuffle_click" >
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="{Binding  icon[6], Converter={StaticResource converter}}" Width="20" Height="20"
+                                   RenderOptions.BitmapScalingMode="HighQuality" />
+                                <TextBlock Margin="10,2,0,0"  >Shuffle</TextBlock>
+                            </StackPanel>
+                        </Button>
+                        <Button BorderBrush="Pink" Background="White"  Width="90" Height="40" Margin="0,0,10,0"  Click="pause_click">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Name="imgPlay" Source="{Binding  icon[7], Converter={StaticResource converter}}" Width="20" Height="20"
+                                   RenderOptions.BitmapScalingMode="HighQuality" />
+                                <TextBlock  Margin="10,2,0,0" Name="btnPlay" >Play</TextBlock>
+                            </StackPanel>
+                        </Button>
+                        <Button BorderBrush="Pink" Background="White" Width="90" Height="40" Margin="0,0,10,0" Click="quit_click" >
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="{Binding  icon[9], Converter={StaticResource converter}}" Width="20" Height="20"
+                                   RenderOptions.BitmapScalingMode="HighQuality" />
+                                <TextBlock  Margin="10,2,0,0" >Quit</TextBlock>
+                            </StackPanel>
+                        </Button>
                     </StackPanel>
                     <StackPanel Orientation="Vertical">
-                        <Button DockPanel.Dock="Top"  Width="40" Height="40" Content="Top"/>
+                        <Button Background="White" BorderThickness="0" DockPanel.Dock="Top"  Width="40" Height="40" Click="KeyUp_Click" >
+                            <Image Source="{Binding  icon[10], Converter={StaticResource converter}}" 
+                                   RenderOptions.BitmapScalingMode="HighQuality" />
+                        </Button>
                         <StackPanel Width="120" Orientation="Horizontal" VerticalAlignment="Center" >
-                            <Button  Width="40" Height="40" Content="Left"/>
-                            <Button Margin="40,0,0,0" Width="40" Height="40" Content="Right"/>
+                            <Button Background="White" BorderThickness="0"  Width="40" Height="40" Click="KeyLeft_Click" >
+                                <Image Source="{Binding  icon[11], Converter={StaticResource converter}}" 
+                                   RenderOptions.BitmapScalingMode="HighQuality" />
+                            </Button>
+                            <Button Background="White" BorderThickness="0" Margin="40,0,0,0" Width="40" Height="40" Click="KeyRight_Click">
+                                <Image Source="{Binding  icon[12], Converter={StaticResource converter}}" 
+                                   RenderOptions.BitmapScalingMode="HighQuality" />
+                            </Button>
                         </StackPanel>
-                        <Button DockPanel.Dock="Bottom" Width="40" Height="40" Content="Bottom"/>
+                        <Button Background="White" BorderThickness="0" DockPanel.Dock="Bottom" Width="40" Height="40" Click="KeyDown_Click">
+                            <Image Source="{Binding  icon[13], Converter={StaticResource converter}}" 
+                                   RenderOptions.BitmapScalingMode="HighQuality" />
+                        </Button>
                     </StackPanel>
                 </StackPanel>
             </Grid>

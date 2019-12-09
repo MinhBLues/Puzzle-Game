@@ -1,0 +1,15 @@
+D:\NAM 3\LTW_C#\Đồ án\1712597_171602_PuzzleGame\1712597_1712602\PuzzleGame\bin\Release\PuzzleGame.exe.config
+D:\NAM 3\LTW_C#\Đồ án\1712597_171602_PuzzleGame\1712597_1712602\PuzzleGame\bin\Release\PuzzleGame.exe
+D:\NAM 3\LTW_C#\Đồ án\1712597_171602_PuzzleGame\1712597_1712602\PuzzleGame\bin\Release\PuzzleGame.pdb
+D:\NAM 3\LTW_C#\Đồ án\1712597_171602_PuzzleGame\1712597_1712602\PuzzleGame\obj\Release\PuzzleGame.csprojAssemblyReference.cache
+D:\NAM 3\LTW_C#\Đồ án\1712597_171602_PuzzleGame\1712597_1712602\PuzzleGame\obj\Release\MainWindow.g.cs
+D:\NAM 3\LTW_C#\Đồ án\1712597_171602_PuzzleGame\1712597_1712602\PuzzleGame\obj\Release\App.g.cs
+D:\NAM 3\LTW_C#\Đồ án\1712597_171602_PuzzleGame\1712597_1712602\PuzzleGame\obj\Release\GeneratedInternalTypeHelper.g.cs
+D:\NAM 3\LTW_C#\Đồ án\1712597_171602_PuzzleGame\1712597_1712602\PuzzleGame\obj\Release\PuzzleGame_MarkupCompile.cache
+D:\NAM 3\LTW_C#\Đồ án\1712597_171602_PuzzleGame\1712597_1712602\PuzzleGame\obj\Release\PuzzleGame_MarkupCompile.lref
+D:\NAM 3\LTW_C#\Đồ án\1712597_171602_PuzzleGame\1712597_1712602\PuzzleGame\obj\Release\MainWindow.baml
+D:\NAM 3\LTW_C#\Đồ án\1712597_171602_PuzzleGame\1712597_1712602\PuzzleGame\obj\Release\PuzzleGame.g.resources
+D:\NAM 3\LTW_C#\Đồ án\1712597_171602_PuzzleGame\1712597_1712602\PuzzleGame\obj\Release\PuzzleGame.Properties.Resources.resources
+D:\NAM 3\LTW_C#\Đồ án\1712597_171602_PuzzleGame\1712597_1712602\PuzzleGame\obj\Release\PuzzleGame.csproj.GenerateResource.cache
+D:\NAM 3\LTW_C#\Đồ án\1712597_171602_PuzzleGame\1712597_1712602\PuzzleGame\obj\Release\PuzzleGame.exe
+D:\NAM 3\LTW_C#\Đồ án\1712597_171602_PuzzleGame\1712597_1712602\PuzzleGame\obj\Release\PuzzleGame.pdb

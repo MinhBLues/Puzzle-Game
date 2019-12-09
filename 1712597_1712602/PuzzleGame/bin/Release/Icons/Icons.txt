@@ -1,0 +1,16 @@
+save.png
+upload.png
+file.png
+photo.png
+options.png
+help.png
+shuffle.png
+play.png
+pause.png
+quit.png
+keyup.png
+keyleft.png
+keyright.png
+keydown.png
+puzzle.png
+original.jpg

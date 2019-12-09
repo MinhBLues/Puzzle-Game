@@ -1,0 +1,7 @@
+3
+0
+60
+file:///D:/NAM 3/LTW_C%23/Đồ án/1712597_171602_PuzzleGame/1712597_1712602/PuzzleGame/bin/Debug/Icons/help.png
+2 5 7 
+3 0 8 
+4 6 1 

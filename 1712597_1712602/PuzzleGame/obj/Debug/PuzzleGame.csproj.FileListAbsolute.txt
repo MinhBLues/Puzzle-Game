@@ -12,3 +12,4 @@ D:\NAM 3\LTW_C#\Đồ án\1712597_171602_PuzzleGame\1712597_1712602\PuzzleGame\o
 D:\NAM 3\LTW_C#\Đồ án\1712597_171602_PuzzleGame\1712597_1712602\PuzzleGame\obj\Debug\PuzzleGame.csproj.GenerateResource.cache
 D:\NAM 3\LTW_C#\Đồ án\1712597_171602_PuzzleGame\1712597_1712602\PuzzleGame\obj\Debug\PuzzleGame.exe
 D:\NAM 3\LTW_C#\Đồ án\1712597_171602_PuzzleGame\1712597_1712602\PuzzleGame\obj\Debug\PuzzleGame.pdb
+D:\NAM 3\LTW_C#\Đồ án\1712597_171602_PuzzleGame\1712597_1712602\PuzzleGame\obj\Debug\GeneratedInternalTypeHelper.g.cs
