@@ -5,7 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PuzzleGame"
         mc:Ignorable="d"
+<<<<<<< HEAD
         Title="Puzzle Game" Height="600" Width="940"
+=======
+        Icon="icon-image/puzzle.png"
+        Title="Image Puzzle Game" Height="600" Width="940"
+>>>>>>> afb32ad4adfdda6c872126bf9be438866960a67b
         Loaded="Window_Loaded"
         MouseMove="Window_MouseMove"
         WindowStartupLocation="CenterScreen"
@@ -69,13 +74,40 @@
                 </ToolBar>
             </ToolBarTray>
             <Grid DockPanel.Dock="Left">
+<<<<<<< HEAD
                 <GroupBox Name="gbPuzzleBox" Header="PuzzleBox" Margin="0,0,10,0" Width="600" >
                     <Canvas Background="BurlyWood" Name="canvasGame" Margin="0,0,0,0" DockPanel.Dock="Left" >
                         
                     </Canvas>
+=======
+                <GroupBox Header="Choose Image">
+                    <StackPanel Width="150" Orientation="Horizontal">
+                        <DockPanel Width="150">
+                            <Button Name="BrowseButton" Content="Browse..."
+                            DockPanel.Dock="Bottom"
+                            HorizontalAlignment="Right"
+                            Click="BrowseButton_Click"></Button>
+
+                            <ListView Name="ImageListView" DockPanel.Dock="Top" 
+                              ScrollViewer.VerticalScrollBarVisibility="Visible"
+                              ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                              PreviewMouseLeftButtonUp="ImageListView_Click" SelectionChanged="ImageListView_SelectionChanged">
+
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Image Source="{Binding }"
+                                          Stretch="Fill" RenderOptions.BitmapScalingMode="HighQuality"></Image>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </DockPanel>
+                    </StackPanel>
+>>>>>>> afb32ad4adfdda6c872126bf9be438866960a67b
                 </GroupBox>
+
             </Grid>
             <Grid DockPanel.Dock="Right">
+<<<<<<< HEAD
                 <GroupBox Header="Original" VerticalAlignment="Top" Width="300" Height="250" DockPanel.Dock="Top" >
                     <Image  Name="Original"  RenderOptions.BitmapScalingMode="HighQuality" />
                 </GroupBox>
@@ -104,6 +136,17 @@
                                 <TextBlock  Margin="10,2,0,0" >Quit</TextBlock>
                             </StackPanel>
                         </Button>
+=======
+                <GroupBox Header="Original" VerticalAlignment="Top" Width="300" Height="300" DockPanel.Dock="Top" >
+                    <Image x:Name="imageDisplay" Width="290"  RenderOptions.BitmapScalingMode="HighQuality" />
+                </GroupBox>
+                <StackPanel VerticalAlignment="Bottom">
+                    <Label Name="lblTime" Height="30" Width="100" FontSize="20" Foreground="Red"  FontWeight="Bold" Padding="10,0,0,0" >00:00:00</Label>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="20,10,0,10" HorizontalAlignment="Center" >
+                        <!-- <Button  Width="90" Height="40" Margin="0,0,10,0" Content="Shuffle"  />-->
+                        <Button Width="90" Height="40" Margin="0,0,10,0"  Content="Pause"/>
+                        <Button  Width="90" Height="40" Margin="0,0,10,0" Content="Quit"/>
+>>>>>>> afb32ad4adfdda6c872126bf9be438866960a67b
                     </StackPanel>
                     <StackPanel Orientation="Vertical">
                         <Button Background="White" BorderThickness="0" DockPanel.Dock="Top"  Width="40" Height="40" Click="KeyUp_Click" >
@@ -126,6 +169,13 @@
                         </Button>
                     </StackPanel>
                 </StackPanel>
+            </Grid>
+            <Grid>
+                <GroupBox Header="PuzzleBox" Margin="0,0,10,0" Width="450" >
+                    <Canvas Name="uiListView" Margin="0,0,0,0" DockPanel.Dock="Left" >
+                        <Image x:Name="previewImage" MouseLeftButtonUp="previewImage_MouseLeftButtonUp"></Image>
+                    </Canvas>
+                </GroupBox>
             </Grid>
         </DockPanel>
     </Grid>

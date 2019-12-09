@@ -8,6 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+<<<<<<< HEAD
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("image/null.jpg")]
+=======
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("icon-image/puzzle.png")]
+>>>>>>> afb32ad4adfdda6c872126bf9be438866960a67b
 
 
