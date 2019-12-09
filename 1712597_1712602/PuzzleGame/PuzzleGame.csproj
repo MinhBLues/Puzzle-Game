@@ -65,13 +65,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-<<<<<<< HEAD
     <Compile Include="Game.cs" />
     <Compile Include="Icons.cs" />
     <Compile Include="ImageGame.cs" />
-=======
-    <Compile Include="ImageClass.cs" />
->>>>>>> afb32ad4adfdda6c872126bf9be438866960a67b
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -103,12 +99,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-<<<<<<< HEAD
   <ItemGroup />
-=======
-  <ItemGroup>
-    <Resource Include="icon-image\puzzle.png" />
-  </ItemGroup>
->>>>>>> afb32ad4adfdda6c872126bf9be438866960a67b
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

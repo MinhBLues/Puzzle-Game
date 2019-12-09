@@ -1,11 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
-<<<<<<< HEAD
 using System.IO;
-=======
-//using System.Drawing;
->>>>>>> afb32ad4adfdda6c872126bf9be438866960a67b
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,14 +18,6 @@ using System.Windows.Threading;
 
 namespace PuzzleGame
 {
-<<<<<<< HEAD
-=======
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    /// 
-
->>>>>>> afb32ad4adfdda6c872126bf9be438866960a67b
     public partial class MainWindow : Window
     {
         Icons icons;
@@ -37,11 +25,9 @@ namespace PuzzleGame
         BitmapImage source;
         public MainWindow()
         {
-
             InitializeComponent();
             icons = new Icons();
         }
-<<<<<<< HEAD
        
         bool _isDragging = false;
         Image _selectedBitmap = null;
@@ -77,31 +63,6 @@ namespace PuzzleGame
                     lblMove.Content = "Moves Made : " + (++Game.Instance.Inmoves).ToString();
                 }
             }
-=======
-
-
-        const int startX = 30;
-        const int startY = 30;
-        const int width = 100;
-        const int height = 100;
-        const int Rows = 3;
-        const int Cols = 3;
-        int[,] _a;
-        private void split()
-        {
-            System.Drawing.Image img;
-            //int widthThird = (int)((double)img.Width / 3.0 + 0.5);
-            //int heightThird = (int)((double)img.Height / 3.0 + 0.5);
-            //Bitmap[,] bmps = new Bitmap[3, 3];
-            //for (int i = 0; i < 3; i++)
-            //    for (int j = 0; j < 3; j++)
-            //    {
-            //        bmps[i, j] = new Bitmap(widthThird, heightThird);
-            //        Graphics g = Graphics.FromImage(bmps[i, j]);
-            //        g.DrawImage(img, new System.Drawing.Rectangle(0, 0, widthThird, heightThird), new System.Drawing.Rectangle(j * widthThird, i * heightThird, widthThird, heightThird), GraphicsUnit.Pixel);
-            //        g.Dispose();
-            //    }
->>>>>>> afb32ad4adfdda6c872126bf9be438866960a67b
         }
         private void MouseLeft_Up(object sender, MouseButtonEventArgs e)
         {
@@ -114,7 +75,7 @@ namespace PuzzleGame
                 int inImageIndex = lastY * Game.Instance.Size + lastX;
                 List<int> FourBrothers = new List<int>(new int[] { ((inImageIndex % Game.Instance.Size == 0) ? -1 : inImageIndex - 1), inImageIndex - Game.Instance.Size, (inImageIndex % Game.Instance.Size == Game.Instance.Size - 1) ? -1 : inImageIndex + 1, inImageIndex + Game.Instance.Size });
 
-                if (FourBrothers.Contains(Game.Instance.InNullSliceIndex) && FourBrothers.Contains(j * Game.Instance.Size + i))
+                if (FourBrothers.Contains(Game.Instance.InNullSliceIndex) && FourBrothers.Contains(j * Game.Instance.Size + i) && Game.Instance.Check[j, i] == Game.Instance.Size * Game.Instance.Size - 1)
                 {
                     Canvas.SetLeft(_selectedBitmap, Game.Instance.StartX + i * (Game.Instance.Width + 2));
                     Canvas.SetTop(_selectedBitmap, Game.Instance.StartY + j * (Game.Instance.Height + 2));
@@ -154,17 +115,17 @@ namespace PuzzleGame
                 Canvas.SetLeft(_selectedBitmap, lastLeft + dx);
                 Canvas.SetTop(_selectedBitmap, lastTop + dy);
                 _lastPosition = position;
+                if ((int)position.X > 600 || (int)position.X < 1 || (int)position.Y < 68 || (int)position.Y > 550)
+                {
+                    Canvas.SetLeft(_selectedBitmap, Game.Instance.StartX + lastX * (Game.Instance.Width + 2));
+                    Canvas.SetTop(_selectedBitmap, Game.Instance.StartY + lastY * (Game.Instance.Height + 2));
+                    _isDragging = false;
+                }
             }
-            if ((int)position.X > 600 || (int)position.X < 1 || (int)position.Y < 68 || (int)position.Y > 500) 
-            {
-                Canvas.SetLeft(_selectedBitmap, Game.Instance.StartX + lastX * (Game.Instance.Width + 2));
-                Canvas.SetTop(_selectedBitmap, Game.Instance.StartY + lastY * (Game.Instance.Height + 2));
-                _isDragging = false;
-            }
+           
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-<<<<<<< HEAD
             this.Icon = new BitmapImage(new Uri($"{ AppDomain.CurrentDomain.BaseDirectory}Icons\\{icons.icon[14]}"));
             var src = new BitmapImage(new Uri($"{ AppDomain.CurrentDomain.BaseDirectory}Icons\\{icons.icon[15]}"));
             Original.Source = src;
@@ -177,20 +138,6 @@ namespace PuzzleGame
             lblTime.Content = $"00:0{Game.Instance.Time / 60}:0{Game.Instance.Time % 60}";
             tbHelp.Text = "1712597 - Phạm Bá Minh           : 1712597@student.hcmus.edu.vn\n" + "1712602 - Nguyễn Thị Cẩm My  : 1712602@student.hcmus.edu.vn";
         }
-=======
-            NewImageListView();
-            _a = new int[Rows, Cols];
-        }
-
-        ImageClass images;
-
-        private void NewImageListView()
-        {
-            images = new ImageClass();
-            ImageListView.ItemsSource = images.Images;
-            ImageListView.SelectedIndex = 0;
-        }
->>>>>>> afb32ad4adfdda6c872126bf9be438866960a67b
         private void LoadGame_Click(object sender, RoutedEventArgs e)
         {
             canvasGame.Children.Clear();
@@ -415,7 +362,6 @@ namespace PuzzleGame
         {
             try
             {
-<<<<<<< HEAD
                 GameReset();
                 Shuffle();
                 Game.Instance.Inmoves = 0;
@@ -423,15 +369,6 @@ namespace PuzzleGame
             catch
             {
 
-=======
-                time = 60;
-                size = 3;
-            }
-            else if (btnCheck2.IsChecked == true)
-            {
-                time = 120;
-                size = 6;
->>>>>>> afb32ad4adfdda6c872126bf9be438866960a67b
             }
         }
         private void quit_click(object sender, RoutedEventArgs e)
@@ -471,7 +408,6 @@ namespace PuzzleGame
         {
             for (int i = 0; i < Game.Instance.Size; i++)
             {
-<<<<<<< HEAD
                 for (int j = 0; j < Game.Instance.Size; j++)
                 {
                     if (Game.Instance.Check[i, j] == Game.Instance.Size * Game.Instance.Size - 1)
@@ -494,105 +430,10 @@ namespace PuzzleGame
                           
                             return;
                         }
-=======
-                time = 180;
-                size = 9;
-            }
-        }
-
-        private void BrowseButton_Click(object sender, RoutedEventArgs e)
-        {
-            var dialog = new OpenFileDialog();
-            if (dialog.ShowDialog() == true)
-            {
-                string filename = dialog.FileName;
-
-                //đưa hình ảnh đã chọn vào listview
-                updateListView(filename);
-            }
-            else
-            {
-
-            }
-        }
-
-        private void updateListView(string newImageLink)
-        {
-            images.Images.Add(newImageLink);
-        }
-
-
-        
-        private void ImageListView_Click(object sender, MouseButtonEventArgs e)
-        {
-            //   MessageBox.Show(e.GetPosition(this).ToString());
-            var filename = ImageListView.SelectedItem as string;
-            //   imageDisplay.Source = filename;
-
-
-            BitmapImage source = new BitmapImage();
-            source.BeginInit();
-            source.UriSource = new Uri(filename);
-            source.CacheOption = BitmapCacheOption.OnLoad;
-            source.EndInit();
-            imageDisplay.Source = source;
-
-            //crop image
-            for (int i = 0; i < 3; i++)
-            {
-                for (int j = 0; j < 3; j++)
-                {
-                    if (!((i == 2) && (j == 2)))
-                    {
-                        var h = (int)source.PixelHeight / 3;
-                        var w = (int)source.PixelWidth / 3;
-                        //Debug.WriteLine($"Len = {len}");
-                        var rect = new Int32Rect(j * w, i * h, w, h);
-                        var cropBitmap = new CroppedBitmap(source,
-                            rect);
-
-                        var cropImage = new Image();
-                        cropImage.Stretch = Stretch.Fill;
-                        cropImage.Width = width;
-                        cropImage.Height = height;
-                        cropImage.Source = cropBitmap;
-                        uiListView.Children.Add(cropImage);
-
-                        var random = new Random();
-                       //ramdom cropImage Local
-                        int tempi = random.Next(Rows);
-                        int tempj = random.Next(Cols);
-                        //khi vi tri do da co hinh
-                        if(_a[tempi, tempj] == 0)
-                        {
-                            Canvas.SetLeft(cropImage, startX + tempj * (width + 2));
-                            Canvas.SetTop(cropImage, startY + tempi * (height + 2));
-                        }
-                        while (_a[tempi, tempj] == 1)
-                        {
-                            //random lai
-                            tempi = random.Next(Rows );
-                            tempj = random.Next(Cols);
-                            //neu vi tri do chua co hinh
-                            if (_a[tempi, tempj] == 0)
-                            {
-                                Canvas.SetLeft(cropImage, startX + tempj * (width + 2));
-                                Canvas.SetTop(cropImage, startY + tempi * (height + 2));
-                                break;
-                            }
-                        }
-                        _a[tempi, tempj] = 1;
-
-                        cropImage.MouseLeftButtonDown += CropImage_MouseLeftButtonDown;
-                        cropImage.PreviewMouseLeftButtonUp += CropImage_PreviewMouseLeftButtonUp;
-                        cropImage.Tag = new Tuple<int, int>(i, j);
-                        //cropImage.MouseLeftButtonUp
->>>>>>> afb32ad4adfdda6c872126bf9be438866960a67b
                     }
                 }
             }
         }
-<<<<<<< HEAD
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Up) MoveKey(1, 0);
@@ -602,28 +443,5 @@ namespace PuzzleGame
         }
         #endregion
 
-=======
-
-        private void CropImage_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-          //  throw new NotImplementedException();
-        }
-
-        private void CropImage_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-          
-           //throw new NotImplementedException();
-        }
-
-        private void ImageListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void previewImage_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-
-        }
->>>>>>> afb32ad4adfdda6c872126bf9be438866960a67b
     }
 }
