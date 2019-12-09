@@ -106,7 +106,6 @@ namespace PuzzleGame
             var position = e.GetPosition(this);
             int i = ((int)position.Y - Game.Instance.StartY - 68) / (Game.Instance.Height + 2);
             int j = ((int)position.X - Game.Instance.StartX - 6) / (Game.Instance.Width + 2);
-            this.Title = $"{position.X} - {position.Y}, a[{i}][{j}]";
             if (_isDragging)
             {
                 var dx = position.X - _lastPosition.X;
