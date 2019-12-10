@@ -195,7 +195,13 @@ namespace PuzzleGame
                 }
                 if (isSuccess)
                 {
+                    lblTime.Content = $"00:0{Game.Instance.Time / 60}:{Game.Instance.Time % 60}";
+                    lblMove.Content = $"Moves made: {Game.Instance.Inmoves}";
+                    isTimeStop = false;
+                    btnPlay.Text = "Play";
+                    imgPlay.Source = new BitmapImage(new Uri($"{ AppDomain.CurrentDomain.BaseDirectory}Icons\\{icons.icon[7]}"));
                     MessageBox.Show("Load game successfully!");
+                    timer.Stop();
                     if (Game.Instance.CheckWin())
                     {
                         MessageBox.Show("You Win!!!","Puzzle Game");
